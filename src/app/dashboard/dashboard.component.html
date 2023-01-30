@@ -1,0 +1,37 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head>
+    <div class="container">
+        <div class="topnav">
+            <div>
+                <a class="active" href="home">Home</a>
+                <a href="add">Add</a>
+                <a (click)="logout()" id="logout">Logout</a>
+                <input [(ngModel)]="BookDetailToSearch" type="text" placeholder="Search.." id="search"/>
+                <button class="icon" id="searchbutton" (click)="getBookByIndex()">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <br>
+            <table class="htable">
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Operation</th>
+                </tr>
+                <tr *ngFor="let item of BookDataToShow">
+                    <td>{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.author}}</td>
+                    <td>${{item.price}}</td>
+                    <td>
+                        <div class="align-center">
+                            <button mat-raised-button="mat-raised-button"   (click)="openDialog(item.id)">Delete</button>
+                            <button mat-raised-button="mat-raised-button"   (click)="redirect_To_Add(item)">Edit</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>

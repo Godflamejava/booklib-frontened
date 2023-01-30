@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="div_form">
+        <div class="div_top">
+            <h1>Enter details of the book :</h1>
+            <button class="close_button" (click)="redirect_To_Home()">
+                <img src="https://cdn-icons-png.flaticon.com/512/106/106830.png" width="35px" height="35px"/>
+            </button>
+        </div>
+        <br>
+            <form class="form_class" [formGroup]="addingBookForm" (ngSubmit)="Add_Book_To_Database()">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="Title of the book.." formControlName="title">
+                    <span *ngIf="title && title.invalid && title.touched">Note: Title cannot be empty</span>
+                    <br>
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" placeholder="Author of the book.." formControlName="author">
+                            <span *ngIf="author && author.invalid && author.touched">Note: Author cannot be empty</span>
+
+                            <br>
+
+                                <label for="price">Price</label>
+                                <input type="text" id="price" name="price" placeholder="Price of the book.." formControlName="price">
+                                    <span *ngIf="price && price.invalid && price.touched">Note: Please enter valid price</span>
+                                    <br>
+                                        <button [disabled]="addingBookForm.invalid " type="submit" value="Submit"> {{FunctionToPerform}}</button>
+                                    </form>
+                                </div>
+                            </div>
